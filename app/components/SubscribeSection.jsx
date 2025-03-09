@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { run } from "../actions"
 
 
 export const SubscribeSection = () => {
@@ -14,7 +15,7 @@ export const SubscribeSection = () => {
         <div className="px-5 h-auto pt-14 bg-gray-200/80">
             <div className="max-w-[700px] mx-auto">
                 <div className="text-3xl mb-4 text-gray-400/80 text-center">Subscribe to my monthly newsletter!</div>
-                <form className="flex flex-col sm:flex-row justify-center items-center gap-y-4 gap-x-4">
+                <form className="flex flex-col sm:flex-row justify-center items-center gap-y-4 gap-x-4" action={run}>
                     <input 
                         type="email"
                         name="email"
