@@ -19,6 +19,11 @@ export const addSubscriber = async (formData) => {
     });
     return {successMessage: `Success! ${email} was successfully subscribed to our newsletter!`}
   } catch (error) {
-    return {errorMessage: `Ooops! There was a problem subscribing ${email} to our newsletter!`}
+    console.log(error.response.body.title)
+    if(error.response.body.title === "Member Exists") {
+      return {errorMessage: `Ooops! It looks like the email ${email} is already subscribed to our newsletter!`}
+    } else {
+      return {errorMessage: `Ooops! There was a problem subscribing ${email} to our newsletter!`}
+    }
   }
 }
